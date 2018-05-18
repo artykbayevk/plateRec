@@ -47,7 +47,7 @@ def upload_pic(request):
             p_status = p.wait()
             main_out = output.split('\n')[0]
             data = (json.loads(main_out))['results']
-            print(data)
+            # print(data)
             if(len(data) == 0 ):
                 data = {'plateNumber':'НОМЕР БЫЛ НЕ НАЙДЕН'}
                 return render(request,'second.html',data)
