@@ -42,7 +42,7 @@ def upload_pic(request):
                     shutil.copy(os.path.join(BASE_DIR,'media','img','main.jpg'),os.path.join(BASE_DIR,'static','img','main.jpg'))
             pathForImage = os.path.join(BASE_DIR, 'static', 'img','main.jpg')
             mainImage = cv2.imread(pathForImage)
-            p = subprocess.Popen('alpr -c kz -p kz -j '+pathForImage, stdout = subprocess.PIPE, shell=True)
+            p = subprocess.Popen('/usr/local/src/openalpr/src/build/alpr -c kz -p kz -j '+pathForImage, stdout = subprocess.PIPE, shell=True)
             (output, err) = p.communicate()
             p_status = p.wait()
             main_out = output.split('\n')[0]
